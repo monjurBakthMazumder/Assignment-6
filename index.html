@@ -6,6 +6,8 @@
     <!-- tailwind css and daisy ui cdn  -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- font awesome link  -->
+    <script src="https://kit.fontawesome.com/985549e602.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <body class="px-[5%]">
@@ -17,7 +19,7 @@
           <a class="btn bg-gray-200 hover:bg-white hover:text-red-600 hover:border-red-600">Sort by view</a>
         </div>
         <div class="navbar-end">
-          <a class="btn bg-red-600 text-white hover:bg-white hover:text-red-600 hover:border-red-600">Blog</a>
+          <a href="./bloge.html" class="btn bg-red-600 text-white hover:bg-white hover:text-red-600 hover:border-red-600">Blog</a>
         </div>
     </nav>
     <div class="text-center mb-5 lg:hidden">
@@ -25,16 +27,22 @@
     </div>
     <hr><hr><hr>
     <main>
-      <section class="flex justify-center items-center gap-5 my-5" id="categoryContainer">
+      <section class="flex flex-wrap justify-center items-center gap-2 sm:gap-5 my-5" id="categoryContainer">
+      </section>
+      <section class="flex flex-col justify-center items-center gap-5 my-28 text-center" id="notFount">
+        <img src="./images/Icon.png" alt="">
+        <h1 class="text-3xl md:text-5xl font-bold">Oops!! Sorry, There is no <br>content here</h1>
       </section>
       <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 my-5" id="categoriesContainer">
       </section>
     </main>
 
     <script>
+      const notFount = document.getElementById('notFount');
+      notFount.classList.add('hidden');
+      const categoriesContainer = document.getElementById('categoriesContainer');
       const loadCategory = async() => {
         const categoryContainer = document.getElementById('categoryContainer');
-        const categoriesContainer = document.getElementById('categoriesContainer');
         const res =  await fetch(`https://openapi.programming-hero.com/api/videos/categories`);
         const data = await res.json();
         const categories = data.data;
@@ -50,11 +58,54 @@
       const loadCategories = async(id) => {
         categoriesContainer.innerHTML = '';
         const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/${id}`);
+        console.log(id);
         const data = await res.json();
         const allData = data.data;
-        console.log(allData);
+        if(allData.length <= 0){
+          notFount.classList.remove('hidden');
+        }
+        else{
+          notFount.classList.add('hidden');
+        }
+        let dateCount = 0;
+        allData.forEach(data => {
+          const card = document.createElement('div');
+          card.classList = `card card-compact`;
+          dateCount++;
+          // ${data.others.posted_date === '' ? '' : ''}
+          card.innerHTML = `
+          <figure class="h-48 relative" id="${dateCount}"><img src="${data.thumbnail}" alt="Shoes" class="rounded-lg h-full w-full"/>
+          </figure>
+          <div class="py-5">
+            <div class="flex justify-starts items-start gap-3">
+              <div class="">
+                <img src="${data.authors[0].profile_picture}" alt="" class="h-10 w-10 rounded-full">
+              </div>
+              <div class="flex-1">
+                <h1 class="text-lg font-semibold">${data.title}</h1>
+                <h2 class="text-base flex justify-start items-center gap-2 text-gray-600">${data.authors[0].profile_name} ${data.authors[0].verified == '' ? '<i class="fa-solid fa-circle-check text-blue-700 text-base"></i>' : ''} </h2>
+                <h2 class="text-base text-gray-600">${data.others.views} views</h2>
+              </div>
+            </div>
+          </div>
+          `;
+          categoriesContainer.appendChild(card);
+          const time = data.others.posted_date;
+          if(time !== ''){
+            const chill = document.getElementById(`${dateCount}`)
+            const div = document.createElement('div');
+            div.classList = `absolute bottom-3 right-3 bg-black bg-opacity-80 rounded p-1 text-white text-xs`;
+            const hrsFloor = time / 3600;
+            const hrs = Math.floor(hrsFloor);
+            const minTotal = time % 3600;
+            const minFloor = minTotal / 60;
+            const min = Math.floor(minFloor);
+            div.innerHTML = `${hrs}hrs ${min}min ago`;
+            chill.appendChild(div);
+          }
+        });
       }
-
+      loadCategories('1000')
     </script>
 </body>
 </html>
