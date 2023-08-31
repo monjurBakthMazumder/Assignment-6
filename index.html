@@ -70,9 +70,9 @@
         let dateCount = 0;
         allData.forEach(data => {
           const card = document.createElement('div');
+          console.log();
           card.classList = `card card-compact`;
           dateCount++;
-          // ${data.others.posted_date === '' ? '' : ''}
           card.innerHTML = `
           <figure class="h-48 relative" id="${dateCount}"><img src="${data.thumbnail}" alt="Shoes" class="rounded-lg h-full w-full"/>
           </figure>
@@ -83,7 +83,7 @@
               </div>
               <div class="flex-1">
                 <h1 class="text-lg font-semibold">${data.title}</h1>
-                <h2 class="text-base flex justify-start items-center gap-2 text-gray-600">${data.authors[0].profile_name} ${data.authors[0].verified == '' ? '<i class="fa-solid fa-circle-check text-blue-700 text-base"></i>' : ''} </h2>
+                <h2 class="text-base flex justify-start items-center gap-2 text-gray-600">${data.authors[0].profile_name} ${data.authors[0].verified === true ? '<i class="fa-solid fa-circle-check text-blue-700 text-base"></i>' : ''} </h2>
                 <h2 class="text-base text-gray-600">${data.others.views} views</h2>
               </div>
             </div>

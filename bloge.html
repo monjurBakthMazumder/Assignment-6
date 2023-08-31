@@ -27,7 +27,9 @@
           Discuss the scope of var, let, and const
         </div>
         <div class="collapse-content"> 
-          <p>hello</p>
+          <p><p class="font-bold underline">var: </p>var is function scope or global scope.If you declare a variable from any place using var,it can be accessed from any place.Declaring a variable using var can change the value of that variable and declare a variable with the same name repeatedly,thereby changing the value of the previously declared variable.Which causes a lot of problems.</p>
+          <p><p class="font-bold underline">let: </p>let is block scope.It's also hoisted,but it's not initialized until the code execution reaches its declaration.If you declare a variable using let,its value can be changed later but no other variable with the same name can be declared later.</p>
+          <p><p class="font-bold underline">const: </p>const is block scope.it's hoisted and not initialized until the declaration.If you declare a variable using Const,the value of that variable cannot be changed and no other variable can be declared with the same name.</p>
         </div>
       </div>
       <div class="collapse collapse-arrow bg-base-200">
@@ -36,7 +38,23 @@
           Tell us the use cases of null and undefined
         </div>
         <div class="collapse-content"> 
-          <p>hello</p>
+          <p>
+            <P class="font-bold underline">Undefined: </P>
+            <p>1.A variable is considered undefined when its value is undefined.</p>
+            <p>2.If the pattern parameters are given to the function but less parameters than the parameters of the function are given when calling the function then the remaining parameters are considered as undefined.
+            </p>
+            <p>3.Attempting to access a value of objects that does not exist in objects.  In that case it will be treated as undefined.</p>
+            <p>4.If nothing is returned in the function, it will be treated as undefined.</p>
+            <p>5.Attempting to access a value of an Array that is not in the Array.  In that case it will be treated as undefined.</p>
+          </p>
+          <p>
+            <P class="font-bold underline">null: </P>
+            <p>1.Declaring a variable whose value is not specified.</p>
+            <p>2.Instead of declaring the value with zero.</p>
+            <p>3.To set the value of a variable to zero.</p>
+            <p>4.If the value of a variable is unknown.</p>
+            <p>5.Later, you will determine the value in this case.</p>
+          </p>
         </div>
       </div>
       <div class="collapse collapse-arrow bg-base-200">
@@ -45,7 +63,12 @@
           What do you mean by REST API?
         </div>
         <div class="collapse-content"> 
-          <p>hello</p>
+          <p>REST Api refers to a link to a database that is used to perform the following tasks.</p>
+          <p>1.Post: To send data to server or database.</p>
+          <p>2.Get: To load data from server or database.</p>
+          <p>3.Delete: To delete any data from the server or database.</p>
+          <p>4.Put: To update any data in the server or database, if the data is not there in the database then it will create a new one.</p>
+          <p>5.Patch: To update any data on the server or database.</p>
         </div>
       </div>
     </main>
