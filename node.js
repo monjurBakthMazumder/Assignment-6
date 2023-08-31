@@ -1,4 +1,5 @@
 const notFount = document.getElementById('notFount');
+const loading = document.getElementById('loading');
       notFount.classList.add('hidden');
       const categoriesContainer = document.getElementById('categoriesContainer');
       const loadCategory = async() => {
@@ -16,6 +17,7 @@ const notFount = document.getElementById('notFount');
       }
       loadCategory();
       const loadCategories = async(id) => {
+        loading.classList.remove('hidden');
         categoriesContainer.innerHTML = '';
         const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/${id}`);
         console.log(id);
@@ -23,6 +25,7 @@ const notFount = document.getElementById('notFount');
         const allData = data.data;
         if(allData.length <= 0){
           notFount.classList.remove('hidden');
+          loading.classList.add('hidden');
         }
         else{
           notFount.classList.add('hidden');
@@ -62,11 +65,13 @@ const notFount = document.getElementById('notFount');
             const min = Math.floor(minFloor);
             div.innerHTML = `${hrs}hrs ${min}min ago`;
             chill.appendChild(div);
+            loading.classList.add('hidden');
           }
         });
       }
       loadCategories('1000')
       const sortByViews = async () => {
+      loading.classList.remove('hidden');
       categoriesContainer.innerHTML = '';
       notFount.classList.add('hidden');
       const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/1000`);
@@ -109,6 +114,7 @@ const notFount = document.getElementById('notFount');
             const min = Math.floor(minFloor);
             div.innerHTML = `${hrs}hrs ${min}min ago`;
             chill.appendChild(div);
+            loading.classList.add('hidden');
           }
         });
     }
