@@ -28,7 +28,6 @@
       <section class="flex justify-center items-center gap-5 my-5" id="categoryContainer">
       </section>
       <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 my-5" id="categoriesContainer">
-        
       </section>
     </main>
 
@@ -42,19 +41,18 @@
         categories.forEach(category => {
           const button = document.createElement('button');
           button.innerHTML = `
-          <a onclick="" class="btn bg-gray-200 hover:bg-white hover:text-red-600 hover:border-red-600">${category.category}</a>
+          <a onclick="loadCategories('${category.category_id}')" class="btn bg-gray-200 hover:bg-white hover:text-red-600 hover:border-red-600">${category.category}</a>
           `
-          // ${category.category_id}
-          console.log(category);
           categoryContainer.appendChild(button);
         });
       }
       loadCategory();
-      const loadCategories = async() => {
-        const res = await fetch(``);
+      const loadCategories = async(id) => {
+        categoriesContainer.innerHTML = '';
+        const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/${id}`);
         const data = await res.json();
-        const allData = data;
-        console.log(data);
+        const allData = data.data;
+        console.log(allData);
       }
 
     </script>
