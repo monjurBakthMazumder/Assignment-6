@@ -68,6 +68,7 @@ const notFount = document.getElementById('notFount');
       loadCategories('1000')
       const sortByViews = async () => {
       categoriesContainer.innerHTML = '';
+      notFount.classList.add('hidden');
       const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/1000`);
       const data = await res.json();
       const allData = data.data;
