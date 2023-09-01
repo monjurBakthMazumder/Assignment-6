@@ -11,7 +11,8 @@
     <title>Document</title>
 </head>
 <body class="px-[5%] max-h-screen">
-    <nav class="navbar py-5">
+  <div class="sticky top-0 z-40 bg-white">
+    <nav class="navbar py-3">
         <div class="navbar-start">
           <a href="./index.html" class="normal-case text-xl"><img src="./images/Logo.png" alt=""></a>
         </div>
@@ -20,55 +21,112 @@
         </div>
     </nav>
     <hr><hr><hr>
-    <main class="my-10 md:my-14 lg:my-20 md:w-4/5 lg:w-3/5 mx-auto">
-      <div class="collapse collapse-arrow bg-base-200">
-        <input type="radio" name="my-accordion-2" checked="checked" /> 
-        <div class="collapse-title text-xl font-medium">
-          Discuss the scope of var, let, and const
+  </div>
+    <main class="flex flex-col md:flex-row justify-center items-start gap-5 my-10">
+      <div>
+        <div class="collapse collapse-arrow bg-base-200">
+          <input type="radio" name="my-accordion-2" checked="checked" /> 
+          <div class="collapse-title text-xl font-medium">
+            Discuss the scope of var, let, and const
+          </div>
+          <div class="collapse-content"> 
+            <p><p class="font-bold underline">var: </p>var is function scope or global scope.If you declare a variable from any place using var,it can be accessed from any place.Declaring a variable using var can change the value of that variable and declare a variable with the same name repeatedly,thereby changing the value of the previously declared variable.Which causes a lot of problems.</p>
+            <p><p class="font-bold underline">let: </p>let is block scope.It's also hoisted,but it's not initialized until the code execution reaches its declaration.If you declare a variable using let,its value can be changed later but no other variable with the same name can be declared later.</p>
+            <p><p class="font-bold underline">const: </p>const is block scope.it's hoisted and not initialized until the declaration.If you declare a variable using Const,the value of that variable cannot be changed and no other variable can be declared with the same name.</p>
+          </div>
         </div>
-        <div class="collapse-content"> 
-          <p><p class="font-bold underline">var: </p>var is function scope or global scope.If you declare a variable from any place using var,it can be accessed from any place.Declaring a variable using var can change the value of that variable and declare a variable with the same name repeatedly,thereby changing the value of the previously declared variable.Which causes a lot of problems.</p>
-          <p><p class="font-bold underline">let: </p>let is block scope.It's also hoisted,but it's not initialized until the code execution reaches its declaration.If you declare a variable using let,its value can be changed later but no other variable with the same name can be declared later.</p>
-          <p><p class="font-bold underline">const: </p>const is block scope.it's hoisted and not initialized until the declaration.If you declare a variable using Const,the value of that variable cannot be changed and no other variable can be declared with the same name.</p>
-        </div>
-      </div>
-      <div class="collapse collapse-arrow bg-base-200">
-        <input type="radio" name="my-accordion-2" /> 
-        <div class="collapse-title text-xl font-medium">
-          Tell us the use cases of null and undefined
-        </div>
-        <div class="collapse-content"> 
-          <p>
-            <P class="font-bold underline">Undefined: </P>
-            <p>1.A variable is considered undefined when its value is undefined.</p>
-            <p>2.If the pattern parameters are given to the function but less parameters than the parameters of the function are given when calling the function then the remaining parameters are considered as undefined.
+        <div class="collapse collapse-arrow bg-base-200">
+          <input type="radio" name="my-accordion-2" /> 
+          <div class="collapse-title text-xl font-medium">
+            Tell us the use cases of null and undefined
+          </div>
+          <div class="collapse-content"> 
+            <p>
+              <P class="font-bold underline">Undefined: </P>
+              <p>1.A variable is considered undefined when its value is undefined.</p>
+              <p>2.If the pattern parameters are given to the function but less parameters than the parameters of the function are given when calling the function then the remaining parameters are considered as undefined.
+              </p>
+              <p>3.Attempting to access a value of objects that does not exist in objects.  In that case it will be treated as undefined.</p>
+              <p>4.If nothing is returned in the function, it will be treated as undefined.</p>
+              <p>5.Attempting to access a value of an Array that is not in the Array.  In that case it will be treated as undefined.</p>
             </p>
-            <p>3.Attempting to access a value of objects that does not exist in objects.  In that case it will be treated as undefined.</p>
-            <p>4.If nothing is returned in the function, it will be treated as undefined.</p>
-            <p>5.Attempting to access a value of an Array that is not in the Array.  In that case it will be treated as undefined.</p>
-          </p>
-          <p>
-            <P class="font-bold underline">null: </P>
-            <p>1.Declaring a variable whose value is not specified.</p>
-            <p>2.Instead of declaring the value with zero.</p>
-            <p>3.To set the value of a variable to zero.</p>
-            <p>4.If the value of a variable is unknown.</p>
-            <p>5.Later, you will determine the value in this case.</p>
-          </p>
+            <p>
+              <P class="font-bold underline">null: </P>
+              <p>1.Declaring a variable whose value is not specified.</p>
+              <p>2.Instead of declaring the value with zero.</p>
+              <p>3.To set the value of a variable to zero.</p>
+              <p>4.If the value of a variable is unknown.</p>
+              <p>5.Later, you will determine the value in this case.</p>
+            </p>
+          </div>
+        </div>
+        <div class="collapse collapse-arrow bg-base-200">
+          <input type="radio" name="my-accordion-2" /> 
+          <div class="collapse-title text-xl font-medium">
+            What do you mean by REST API?
+          </div>
+          <div class="collapse-content"> 
+            <p>Rest api is an important service. Which is used in web development. The full application programming interface. In the meantime, the data is sent from one web application to another web application. Using api, we can access data remotely and communicate between servers and applications. We can get, post, delete, put and patch data using api such as:</p>
+            <p>1.Post: To send data to server or database.</p>
+            <p>2.Get: To load data from server or database.</p>
+            <p>3.Delete: To delete any data from the server or database.</p>
+            <p>4.Put: To update any data in the server or database, if the data is not there in the database then it will create a new one.</p>
+            <p>5.Patch: To update any data on the server or database.</p>
+          </div>
         </div>
       </div>
-      <div class="collapse collapse-arrow bg-base-200">
-        <input type="radio" name="my-accordion-2" /> 
-        <div class="collapse-title text-xl font-medium">
-          What do you mean by REST API?
+      <div>
+        <div class="collapse collapse-arrow bg-base-200">
+          <input type="radio" name="my-accordion-3" checked="checked" /> 
+          <div class="collapse-title text-xl font-medium">
+            Discuss the scope of var, let, and const
+          </div>
+          <div class="collapse-content"> 
+            <p><p class="font-bold underline">var: </p>var দিয়ে ঘোষণা করা veritable function scope.var দিয়ে একটি ভেরিয়েবল কোন ব্লক এর ভিতরে ঘোষণা করলে তা বাইর থেকে access করা যায়। var দিয়ে ঘোষণা করা ভেরিয়েবলের মান বার বার পরিবর্তন করা যায় এবং যদি পরবর্তীতে একই নামে অন্য কোন ভেরিয়েবল ঘোষণা করা হয় তখন পূর্বের ভেরিয়েবলের মান ও পরিবর্তন হয়ে যায়, যার ফলে অনেক সমস্যা হয়।</p>
+            <p><p class="font-bold underline">let: </p>let দিয়ে ঘোষণা করা ভেরিয়েবল block scope থাকে। এটি ব্লক এর বাহির থেকে access করা যায় না, let দিয়ে ঘোষণা করা ভেরিয়েবলের মান বার বার পরিবর্তন করা যায় কিন্তু একই নামে অন্য কোন ভেরিয়েবল ঘোষণা করা যায় না।</p>
+            <p><p class="font-bold underline">const: </p>const দিয়ে ঘোষণা করা ভেরিয়েবল block scope থাকে। এটি ব্লক এর বাহির থেকে access করা যায় না,const দিয়ে ঘোষণা করা ভেরিয়েবলের মান পরিবর্তন করা যায় না এবং একই নামে অন্য কোন ভেরিয়েবল ঘোষণা করা যায় না।</p>
+          </div>
         </div>
-        <div class="collapse-content"> 
-          <p>REST Api refers to a link to a database that is used to perform the following tasks.</p>
-          <p>1.Post: To send data to server or database.</p>
-          <p>2.Get: To load data from server or database.</p>
-          <p>3.Delete: To delete any data from the server or database.</p>
-          <p>4.Put: To update any data in the server or database, if the data is not there in the database then it will create a new one.</p>
-          <p>5.Patch: To update any data on the server or database.</p>
+        <div class="collapse collapse-arrow bg-base-200">
+          <input type="radio" name="my-accordion-3" /> 
+          <div class="collapse-title text-xl font-medium">
+            Tell us the use cases of null and undefined
+          </div>
+          <div class="collapse-content"> 
+            <p>
+              <P class="font-bold underline">Undefined: </P>
+              <p>যখন কোনও ভ্যারিয়েবলে মান বলে দেওয়া হয় না, তখন সেটি undefined দেখায়। কোন ভেরিয়েবলের মান না থকলে তার ডাটা টাইপ undefined দেখাবে। undefined কখন দেখায় যখন-</p>
+              <p>১. যখন কোন ভেরিয়েবলের মান নির্দিষ্ট নয় তখন তা undefined হিসেবে বিবেচিত হয়।</p>
+              <p>২. যদি function এ নিদর্শন parameters দেওয়া থাকে কিন্তু function কে call করার সময় function এর parameters এর তুলনায় কম parameters দেওয়া হয় তখন অবশিষ্ট parameters undefined হিসেবে বিবেচিত হয়।
+              </p>
+              <p>৩. objects এর এমন কোন মান access করার চেষ্টা করা যা objects এ নেই। সেক্ষেত্রে  undefined হিসেবে বিবেচিত হবে।</p>
+              <p>৪. যদি Function এ কোন কিছু return করা না হয় তখন তা undefined হিসেবে বিবেচিত হবে।</p>
+              <p>৫. Array এর এমন কোন মান access করার চেষ্টা করা যা Array তে নেই। সেক্ষেত্রে  undefined হিসেবে বিবেচিত হবে।</p>
+            </p>
+            <p>
+              <P class="font-bold underline">null: </P>
+              <p>যে ভেরিয়েবলের মান অজানা বা নাই সে ভেরিয়েবলকে null বলে। ভেরিয়েবলে কোন মান নাই খালি এমতাবস্থায় এর ডাটা টাইপ চেক করলে তা null দেখাবে। null এর ব্যবহার ক্ষেত্র -</p>
+              <p>১.কোন ভেরিয়েবল ঘোষণা করার ক্ষেত্রে  যার কোন মান নির্দিষ্ট নয়।</p>
+              <p>২. শূন্য দিয়ে মান ঘোষণা করার পরিবর্তে।</p>
+              <p>৩. কোন ভেরিয়েবলের মান শূন্য করতে।</p>
+              <p>৪. কোন ভেরিয়েবলের মান অজানা থাকলে।</p>
+              <p>৫. পরবর্তীতে মান নির্ধারণ করবেন এ ক্ষেত্রে।</p>
+            </p>
+          </div>
+        </div>
+        <div class="collapse collapse-arrow bg-base-200">
+          <input type="radio" name="my-accordion-3" /> 
+          <div class="collapse-title text-xl font-medium">
+            What do you mean by REST API?
+          </div>
+          <div class="collapse-content"> 
+            <p>Rest api এটি গুরুত্বপূর্ণ পরিষেবা। যা web development এ ব্যবহার করা হয়। এর পূর্ণরূপ Application programming interface. এর মধ্যমে ডাটা একটি ওয়েব application থেকে অন্য web application এ পাঠানো হয়। api ব্যবহার করে আমরা ডাটা রিমোটলি access করতে পারি এবং সার্ভার  এবং application  এর মধ্যে communication করতে পারি। আমরা api ব্যবহার করে ডাটা Get, Post, Delete, Put এবং patch করতে পারি যেমন-</p>
+            <p>1.Post: সার্ভার বা ডাটাবেইজ এ ডাটা পাঠাতে।</p>
+            <p>2.Get: সার্ভার বা ডাটাবেইজ থেকে ডাটা load করতে।</p>
+            <p>3.Delete: সার্ভার বা ডাটাবেইজ থেকে কোন ডাটা Delete করতে।</p>
+            <p>4.Put: সার্ভার বা ডাটাবেইজ এ কোন ডাটা Update করতে, যদি ডাটাবেইজ এ ওই ডাটা না থাকে তাহলে নতুন করে তৈরি করবে।</p>
+            <p>5.Patch: সার্ভার বা ডাটাবেইজ এ কোন ডাটা আছে সেটাকে Update করতে।</p>
+          </div>
         </div>
       </div>
     </main>
